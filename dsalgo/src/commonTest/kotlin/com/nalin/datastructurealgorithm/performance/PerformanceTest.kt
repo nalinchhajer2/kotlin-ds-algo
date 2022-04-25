@@ -4,6 +4,9 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
+/**
+ * Checks scalability of datastructure and algorithm
+ */
 class PerformanceTest {
     val TEST_SIZE = 100000
 
@@ -79,4 +82,5 @@ class PerformanceTest {
 //            newArray = array.slice(1 until newArray.size)  // 2819 ms
         }
     }
+
 }
