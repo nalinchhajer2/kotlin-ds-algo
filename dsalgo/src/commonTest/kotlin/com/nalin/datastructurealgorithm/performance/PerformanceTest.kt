@@ -65,4 +65,18 @@ class PerformanceTest {
         assertEquals(sequence, TEST_SIZE - 1)
         assertTrue { map.size == TEST_SIZE }
     }
+
+    @Test
+    fun deleteItemFromArray() {
+        val array = mutableListOf<Int>() // 0 MS
+        for (i in 0 until TEST_SIZE) { // 4 ms
+            array.add(i)
+        }
+//        var newArray = array.slice(0 until array.size)
+        for (i in array.indices) {
+            array.removeAt(0) // 484 ms
+//            array.drop(1) // 2400 ms
+//            newArray = array.slice(1 until newArray.size)  // 2819 ms
+        }
+    }
 }
