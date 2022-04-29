@@ -7,13 +7,15 @@ class DataStructureTest {
 
     @Test
     fun testLinkedList() {
-        val linkedList = linkedListOf<Int>(1,2)
-        var itratorNode = linkedList
+        val range = (1..10000).toList().toTypedArray()
+        val linkedList = linkedListOf<Int>(*range)
+        var itratorNode = linkedList!!
         val result = arrayListOf<Int>()
-        while(itratorNode.nextNode !== null) {
+        while (itratorNode.nextNode !== null) {
             result.add(itratorNode.value ?: 0)
             itratorNode = itratorNode.nextNode!!
         }
-        //assertEquals(result, arrayListOf<Int>(1,2))
+        result.add(itratorNode.value ?: 0)
+        assertEquals(result, arrayListOf<Int>(*range))
     }
 }
