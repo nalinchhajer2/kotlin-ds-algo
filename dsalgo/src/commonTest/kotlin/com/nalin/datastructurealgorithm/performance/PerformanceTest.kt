@@ -77,7 +77,9 @@ class PerformanceTest {
         }
 //        var newArray = array.slice(0 until array.size)
         for (i in array.indices) {
-            array.removeAt(0) // 484 ms
+//            array.removeFirst() // 524
+            array.removeLast() // 16 ms
+//            array.removeAt(0) // 484 ms
 //            array.drop(1) // 2400 ms
 //            newArray = array.slice(1 until newArray.size)  // 2819 ms
         }

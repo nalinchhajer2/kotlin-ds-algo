@@ -1,10 +1,7 @@
 package com.nalin.datastructurealgorithm.problem
 
 import com.nalin.datastructurealgorithm.ds.linkedListOf
-import com.nalin.datastructurealgorithm.problems.checkIntervalOveralps
-import com.nalin.datastructurealgorithm.problems.firstDuplicateValue
-import com.nalin.datastructurealgorithm.problems.linkedListPalindrome
-import com.nalin.datastructurealgorithm.problems.mergeOverlappingIntervals
+import com.nalin.datastructurealgorithm.problems.*
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -43,6 +40,17 @@ class AE_List_Test {
         assertEquals(linkedListPalindrome(linkedListOf(2, 2)), true)
         assertEquals(linkedListPalindrome(linkedListOf(2, 4)), false)
         assertEquals(linkedListPalindrome(linkedListOf(2, 3, 4)), false)
+    }
+
+    @Test
+    fun testFindRectangleFromPoints() {
+        val lot = List(100000) { listOf(it, 2) }.toMutableList()
+        lot.addAll(List(1) { listOf(it, 3) })
+//        mergePointsFromGivenDimension(lot, 0, 1)
+        assertEquals(
+            mergePointsFromGivenDimension(lot, 0, 1),
+            mutableMapOf(Pair(0, mutableSetOf(2, 3)))
+        )
     }
 
 }
