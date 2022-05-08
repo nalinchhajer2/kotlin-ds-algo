@@ -70,7 +70,6 @@ class DataStructureTest {
 
     @Test
     fun adjacencyListGraphTest() {
-        val testSize = 100
         val graph = AdjacencyListGraph<Char>()
         for (i in 0 until testSize) {
             graph.addEdge('a' + i, 'a' + i + 1)
@@ -93,6 +92,7 @@ class DataStructureTest {
         graph2.addEdge('3', '1')
         assertEquals(graph2.nodeTraversalDFS(), listOf<Char>('5', '2', '3', '1', '4', '0'))
         assertEquals(graph2.nodeTraversalBFS(), listOf<Char>('5', '2', '0', '3', '4', '1'))
+        assertEquals(graph2.nodeTraversalTopological(), listOf<Char>('0', '4', '1', '3', '2', '5'))
 
     }
 }

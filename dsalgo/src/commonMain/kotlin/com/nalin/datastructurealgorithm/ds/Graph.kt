@@ -94,4 +94,31 @@ class AdjacencyListGraph<T>(val directionType: Int = GRAPH_DIRECTED) {
         }
         return traversal
     }
+
+    fun nodeTraversalTopological(startNode: T? = null): MutableList<T> {
+        val traversal = mutableListOf<T>()
+        val isVisited = mutableMapOf<T, Boolean>()
+        fun traverse(node: T) {
+            isVisited[node] = true
+            val edges = nodes[node]!!
+            for (edge in edges) {
+                if (isVisited[edge.node] != true) {
+                    traverse(edge.node)
+                }
+            }
+            traversal.add(node)
+        }
+
+        if (startNode != null) {
+            traverse(startNode)
+        }
+
+        for ((k, _) in nodes) {
+            if (isVisited[k] != true) {
+                traverse(k)
+            }
+        }
+        return traversal
+    }
+
 }
