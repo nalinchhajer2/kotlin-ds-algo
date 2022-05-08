@@ -1,5 +1,6 @@
 package com.nalin.datastructurealgorithm.problem
 
+import com.nalin.datastructurealgorithm.ds.Queue
 import com.nalin.datastructurealgorithm.ds.linkedListOf
 import com.nalin.datastructurealgorithm.problems.*
 import kotlin.test.Test
@@ -40,6 +41,18 @@ class AE_List_Test {
         assertEquals(linkedListPalindrome(linkedListOf(2, 2)), true)
         assertEquals(linkedListPalindrome(linkedListOf(2, 4)), false)
         assertEquals(linkedListPalindrome(linkedListOf(2, 3, 4)), false)
+    }
+
+    @Test
+    fun testQueue() {
+        val queue = Queue<Char>()
+        queue.enqueue('a')
+        queue.enqueue('b')
+        queue.enqueue('c')
+        assertEquals(queue.dequeue(), 'a')
+        assertEquals(queue.dequeue(), 'b')
+        assertEquals(queue.dequeue(), 'c')
+        assertEquals(queue.dequeue(), null)
     }
 
     @Test

@@ -109,9 +109,9 @@ class Heap<T : Comparable<T>>(
     private fun checkIfMinMaxConditionSatisfied(left: Int, right: Int): Boolean {
         val result = array[left].compareTo(array[right])
         if (sortByMin) {
-            return result < 0
+            return result <= 0
         } else {
-            return result > 0
+            return result >= 0
         }
     }
 

@@ -67,4 +67,32 @@ class DataStructureTest {
         ipq.changePriority('e', 2)
         assertEquals(ipq.pop(), 'a')
     }
+
+    @Test
+    fun adjacencyListGraphTest() {
+        val testSize = 100
+        val graph = AdjacencyListGraph<Char>()
+        for (i in 0 until testSize) {
+            graph.addEdge('a' + i, 'a' + i + 1)
+        }
+        graph.addEdge('a', 'b')
+        assertEquals(graph.nodeTraversalDFS().size, testSize + 1)
+
+        val graph1 = AdjacencyListGraph<Char>(GRAPH_UNDIRECTED)
+        for (i in 0 until testSize) {
+            graph1.addEdge('a' + i, 'a' + i + 1)
+        }
+        assertEquals(graph1.nodeTraversalDFS().size, testSize + 1)
+
+        val graph2 = AdjacencyListGraph<Char>(GRAPH_UNDIRECTED)
+        graph2.addEdge('5', '2')
+        graph2.addEdge('5', '0')
+        graph2.addEdge('4', '0')
+        graph2.addEdge('4', '1')
+        graph2.addEdge('2', '3')
+        graph2.addEdge('3', '1')
+        assertEquals(graph2.nodeTraversalDFS(), listOf<Char>('5', '2', '3', '1', '4', '0'))
+        assertEquals(graph2.nodeTraversalBFS(), listOf<Char>('5', '2', '0', '3', '4', '1'))
+
+    }
 }

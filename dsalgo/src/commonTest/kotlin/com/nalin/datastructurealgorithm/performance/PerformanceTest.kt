@@ -1,5 +1,6 @@
 package com.nalin.datastructurealgorithm.performance
 
+import com.nalin.datastructurealgorithm.ds.SetQueue
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -83,6 +84,23 @@ class PerformanceTest {
 //            array.drop(1) // 2400 ms
 //            newArray = array.slice(1 until newArray.size)  // 2819 ms
         }
+    }
+
+    @Test
+    fun setQueue() {
+        val queue = SetQueue<Int>()
+        queue.enqueue(1)
+        queue.enqueue(3)
+        queue.enqueue(4)
+        queue.enqueue(-1)
+        queue.enqueue(4)
+        assertEquals(queue.contains(1), true)
+        assertEquals(queue.dequeue(), 1)
+        assertEquals(queue.contains(1), false)
+        assertEquals(queue.dequeue(), 3)
+        assertEquals(queue.dequeue(), 4)
+        assertEquals(queue.dequeue(), -1)
+        assertEquals(queue.dequeue(), null)
     }
 
 }
