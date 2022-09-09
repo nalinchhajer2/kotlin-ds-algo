@@ -1,3 +1,9 @@
+# Depricated
+
+This repo has been moved to https://github.com/nalinchhajer1/kotlin-ds-algo . 
+
+
+
 # kotlin-ds-algo
 Kotlin Datastructure Algorithm
 
